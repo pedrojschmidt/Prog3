@@ -41,7 +41,7 @@ public class StaticStack<T> implements StackInterface<T> {  //implementacion est
         if (size > 0) {
             size--;
         }else{
-            throw new IsEmptyException("No se puede sacar el tope porque la pila está vacia");
+            throw new IsEmptyException();
         }
 
     }

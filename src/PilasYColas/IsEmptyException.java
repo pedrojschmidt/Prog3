@@ -2,8 +2,8 @@ package PilasYColas;
 
 public class IsEmptyException extends Exception {
 
-    public IsEmptyException(String str){
-        super(str);
+    public IsEmptyException(){
+        super("Your stack/queue is empty");
     }
 
 }

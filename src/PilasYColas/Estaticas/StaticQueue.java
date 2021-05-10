@@ -52,7 +52,7 @@ public class StaticQueue<T> implements QueueInterface<T> {
     @Override
     public T dequeue() throws IsEmptyException {
         if (isEmpty()) {
-            throw new IsEmptyException("La cola está vacía.");
+            throw new IsEmptyException();
         }
         return dequeueAux(data);
     }
