@@ -18,11 +18,12 @@ public class StaticQueue<T> implements QueueInterface<T> {
     @Override
     public void enqueue(T element){
         if (size < data.length) {
-            back++;
             data[back] = element;
+            back++;
+            size ++;
         }else{
             data = expandArray(data);
-            size += 1;
+            enqueue(element);
         }
     }
 

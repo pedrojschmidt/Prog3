@@ -15,8 +15,11 @@ public class DynamicStack <T> implements StackInterface<T> {
     }
 
     @Override
-    public boolean isEmpty() {
-        return top == null;
+    public void stack(T element) {
+        Node aux = new Node(element);
+        aux.next = top;
+        top = aux;
+        size += 1;
     }
 
     @Override
@@ -37,16 +40,13 @@ public class DynamicStack <T> implements StackInterface<T> {
     }
 
     @Override
-    public void stack(T element) {
-        Node aux = new Node(element);
-        aux.next = top;
-        top = aux;
-        size += 1;
+    public int size() {
+        return size;
     }
 
     @Override
-    public int size() {
-        return size;
+    public boolean isEmpty() {
+        return top == null;
     }
 
     @Override

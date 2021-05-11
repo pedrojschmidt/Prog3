@@ -33,8 +33,12 @@ public class StaticStack<T> implements StackInterface<T> {  //implementacion est
         return extendedData;
     }
 
-    public int size(){
-        return size;
+    public T peek(){
+        if (size > 0) {
+            return data[size-1];
+        }else{
+            return null;
+        }
     }
 
     public void pop() throws IsEmptyException {
@@ -46,12 +50,8 @@ public class StaticStack<T> implements StackInterface<T> {  //implementacion est
 
     }
 
-    public T peek(){
-        if (size > 0) {
-            return data[size-1];
-        }else{
-            return null;
-        }
+    public int size(){
+        return size;
     }
 
     public boolean isEmpty(){
