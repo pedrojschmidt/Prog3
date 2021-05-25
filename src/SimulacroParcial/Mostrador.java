@@ -12,6 +12,7 @@ public class Mostrador {
     private OrderedList<Publicacion> publicaciones;
     private DynamicStack<Publicacion> publicacionesSinEjemplares;
     private List<Persona> personasConEjemplares;
+    private Persona[] top5;
 
     public Mostrador(int cantidadDePublicaciones) {
         publicaciones = new OrderedList<>();
@@ -20,6 +21,7 @@ public class Mostrador {
         }
         publicacionesSinEjemplares = new DynamicStack<>();
         personasConEjemplares = new List<>();
+        top5 = new Persona[5];
     }
 
     public void atenderPersona() throws Exception {
@@ -33,7 +35,7 @@ public class Mostrador {
 
     public void atenderPedido() throws IsEmptyException {
         Persona persona = new Persona();
-        Publicacion publicacion = eleccionDePublicacion();
+        Publicacion publicacion = (Publicacion) eleccionAleatoria(publicaciones);
         if (publicacion.getEjemplaresDisponibles() == 0) {
             publicacionesSinEjemplares.stack(publicacion);
         }else{
@@ -41,15 +43,6 @@ public class Mostrador {
             persona.obtenerEjemplar(publicacion.getPilaDeEjemplares().peek());
             publicacion.getPilaDeEjemplares().pop();
         }
-    }
-
-    private Publicacion eleccionDePublicacion(){
-        int numeroDePublic = (int) (publicaciones.size()*Math.random()); // elige una posicion al azar de la lista "publicaciones"
-        publicaciones.first(); // pone la ventana en la posicion cero de la lista
-        for (int i = 0; i < numeroDePublic; i++) { // si el numeroDePublic es cero el for no se ejecuta
-            publicaciones.next();
-        }
-        return publicaciones.peekCurrent(); // devuelve la publicacion de la posicion seleccionada al azar
     }
 
     private Object eleccionAleatoria(List lista){
@@ -75,6 +68,12 @@ public class Mostrador {
             Publicacion publicacion = (Publicacion) eleccion(publicaciones, ejemplar.getNumeroDePublicacion());
             publicacion.getPilaDeEjemplares().stack(ejemplar);
             // falta guardar el DNI con el tiempo de uso del ejemplar
+            for (int i = 0; i < 5; i++) {
+                int a = top5[i].compareTo(persona);
+                if (a == 0) {
+
+                }
+            }
         }
     }
 
@@ -95,7 +94,10 @@ public class Mostrador {
     }
 
     public void mostrar5DNIconMayorTiempo(){
-
+        System.out.println(" Top 5 DNI: ");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(" DNI: " + top5[i].getDni());
+        }
     }
 
 

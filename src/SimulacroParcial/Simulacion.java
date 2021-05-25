@@ -27,8 +27,7 @@ public class Simulacion {
             int option = sc.nextInt();
             switch (option) {
                 case 1:
-                    //mostrador.atenderPersona();
-                    mostrador.atenderPedido();
+                    mostrador.atenderPersona();
                     break;
                 case 2:
                     mostrador.devolverTodosLosEjemplares();
@@ -36,10 +35,6 @@ public class Simulacion {
                     mostrador.mostrar5DNIconMayorTiempo();
                     mostrador.mostrarInfoDeEjemplaresPedidos();
                     stop = true;
-                    break;
-                case 3:
-                    //mostrador.atenderPersona();
-                    mostrador.atenderDevolucion();
                     break;
                 default:
                     System.out.println("  !La opcion ingresada es inexistente!");

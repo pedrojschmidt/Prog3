@@ -1,6 +1,6 @@
 package SimulacroParcial;
 
-public class Persona {
+public class Persona implements Comparable<Persona>{
 
     private String dni;
     private boolean tieneEjemplar; //funciona tambien para saber si tiene el DNI
@@ -37,5 +37,16 @@ public class Persona {
 
     public long getHoraAlObtenerUnEjemplar(){
         return horaAlObtenerUnEjemplar;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    @Override
+    public int compareTo(Persona o) {
+        /*if () {
+        }*/
+        return 0;
     }
 }
