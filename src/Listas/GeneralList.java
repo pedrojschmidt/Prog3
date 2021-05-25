@@ -4,7 +4,7 @@ public interface GeneralList<T> {
 
     void remove();
 	void goNext();
-    void goPrevious();
+    void goPrev();
     void goTo(int n);
     T getActual();
     int size();

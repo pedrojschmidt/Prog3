@@ -68,12 +68,12 @@ public class Mostrador {
             Publicacion publicacion = (Publicacion) eleccion(publicaciones, ejemplar.getNumeroDePublicacion());
             publicacion.getPilaDeEjemplares().stack(ejemplar);
             // falta guardar el DNI con el tiempo de uso del ejemplar
-            for (int i = 0; i < 5; i++) {
+            /*for (int i = 0; i < 5; i++) {
                 int a = top5[i].compareTo(persona);
                 if (a == 0) {
 
                 }
-            }
+            }*/
         }
     }
 
@@ -94,9 +94,11 @@ public class Mostrador {
     }
 
     public void mostrar5DNIconMayorTiempo(){
-        System.out.println(" Top 5 DNI: ");
+        System.out.println("\n Top 5 DNI: ");
         for (int i = 0; i < 5; i++) {
-            System.out.println(" DNI: " + top5[i].getDni());
+            if (top5[i] != null) {
+                System.out.println(" DNI: " + top5[i].getDni());
+            }
         }
     }
 
