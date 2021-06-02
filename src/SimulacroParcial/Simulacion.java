@@ -1,7 +1,6 @@
 package SimulacroParcial;
 
 import PilasYColas.IsEmptyException;
-
 import java.util.Scanner;
 
 public class Simulacion {

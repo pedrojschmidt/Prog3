@@ -2,6 +2,7 @@ package Archivos;
 
 public class Producto {
     private int codigo;
+    private String descripcion;
     private double precio;
     private char tipo;
     private boolean activo;
@@ -9,8 +10,9 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int codigo, double precio,  char tipo, boolean activo) {
+    public Producto(int codigo, String descripcion, double precio,  char tipo, boolean activo) {
         this.codigo = codigo;
+        this.descripcion = descripcion;
         this.precio = precio;
         this.tipo = tipo;
         this.activo = activo;
@@ -58,5 +60,7 @@ public class Producto {
         this.activo = activo;
     }
 
-
+    public String getDescripcion() {
+        return descripcion;
+    }
 }
