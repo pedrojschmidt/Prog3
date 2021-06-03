@@ -29,4 +29,8 @@ public class DoubleNode<T> {
     public DoubleNode<T> getRight() {
         return right;
     }
+
+    public void setDato(T dato) {
+        this.dato = dato;
+    }
 }

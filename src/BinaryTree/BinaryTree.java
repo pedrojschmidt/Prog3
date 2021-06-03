@@ -28,8 +28,8 @@ public class BinaryTree<T> {
         return root.getDato();
     }
 
-    public void setRoot(DoubleNode<T> root) {
-        this.root = root;
+    public void setRoot(T element) {
+        root.setDato(element);
     }
 
     public BinaryTree<T> getRight() {

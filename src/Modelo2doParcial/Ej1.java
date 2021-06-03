@@ -21,10 +21,12 @@ public class Ej1 {
 
     public static void main(String[] args) throws IOException {
 
-        File file = new File("C:\\Users\\Pedro\\Desktop\\Folder\\Austral\\Java\\Lluvias"); // hay que escribir el archivo desde acá
-        RandomAccessFile raf = new RandomAccessFile(file, "r");
+        File file = new File("C:\\Users\\Pedro\\Desktop\\Folder\\Austral\\Java\\Lluvias.txt");
+        RandomAccessFile raf = writeFile(new RandomAccessFile(file, "rw"));
         HashMap<Integer, String> hashMap = fillHashmap(new HashMap());
         OrderedList<Provincia> list = new OrderedList<>();
+
+        raf.seek(0);
 
         for (int i = 1; i < 24; i++) {
             int numeroDeProv = raf.readInt();
@@ -37,11 +39,22 @@ public class Ej1 {
         printList(list);
     }
 
+    public static RandomAccessFile writeFile(RandomAccessFile raf) throws IOException {
+        for (int i = 1; i < 24; i++) {
+            raf.writeInt(i);
+            for (int j = 1; j < 13; j++) {
+                raf.writeInt(i+j);
+            }
+        }
+        return raf;
+    }
+
     public static void printList(OrderedList list){
         list.first();
         for (int i = 0; i < list.size(); i++) {
             Provincia provincia = (Provincia)list.peekCurrent();
-            System.out.println(provincia.getNombre() + "        Lluvias: " + provincia.getSumaDeLluvias());
+            System.out.println(provincia.getNombre() + "                          Lluvias: " + provincia.getSumaDeLluvias());
+            list.next();
         }
     }
 

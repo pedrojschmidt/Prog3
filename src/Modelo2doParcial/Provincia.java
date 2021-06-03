@@ -21,9 +21,9 @@ public class Provincia implements Comparable<Provincia> {
     @Override
     public int compareTo(Provincia o) {
         if (sumaDeLluvias <= o.getSumaDeLluvias()) {
-            return 1;
-        }else{
             return -1;
+        }else{
+            return 1;
         }
     }
 }
